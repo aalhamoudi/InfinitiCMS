@@ -1,0 +1,37 @@
+version: '3.6'
+
+services:
+   db:
+     image: mysql:5.7
+     #volumes:
+     #  - db:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: admin
+       MYSQL_ROOT_HOST: "%"
+       MYSQL_DATABASE: cms
+       MYSQL_USER: cms
+       MYSQL_PASSWORD: cms
+   data:
+    depends_on:
+       - db
+    build: ./Data
+    ports:
+      - "4000:4000"
+   logic:
+    depends_on:
+       - data
+    build: ./Logic
+    ports: 
+      - "3000:3000"
+   app:
+     depends_on:
+       - logic
+     build: ./App
+     ports:
+       - "80:80"
+
+volumes:
+    db:
+    data:
+      

@@ -1,0 +1,13 @@
+{
+  "name": "@infiniticms/app",
+  "version": "1.0.0",
+  "main": "Server.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^6.1.0",
+    "vue-router": "^3.0.1"
+  }
+}
